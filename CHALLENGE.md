@@ -69,7 +69,7 @@ Dentro de QEMU, ejecuta estos comandos y copia la salida:
 ```sh
 # ¿Qué kernel corre?
 uname -r
-
+#6.12.0-dirty
 # ¿El módulo vulnerable está cargado?
 lsmod | grep alg
 
