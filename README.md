@@ -81,3 +81,6 @@ copy-fail-challenge/
 ---
 
 *Basado en CVE-2026-31431 descubierto por Theori / Xint Code. Divulgado el 29 de abril de 2026.*
+
+Kernel Panic resolución:
+Para solucionar el Kernel Panic, primero identificamos que el proceso de compilación fallaba por la falta de herramientas de compresión (xz-utils), lo que generaba archivos corruptos o incompletos. Corregimos esto instalando las dependencias necesarias (xz-utils, bc y libssl-dev) y limpiando el entorno con make clean para asegurar una base sólida. Posteriormente, entendimos que el error específico "No working init found" ocurría porque el kernel no tenía un sistema de archivos para arrancar, por lo que ejecutamos make rootfs para generar el archivo initramfs.cpio.gz, que funciona como el "cuerpo" del sistema. Con las herramientas instaladas y el sistema de archivos listo, realizamos la compilación final mediante make kernel, lo que permitió generar el binario bzImage_vuln y finalmente lanzar la simulación funcional con make qemu.

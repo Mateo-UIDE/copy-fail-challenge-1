@@ -85,6 +85,7 @@ cat /proc/modules | grep algif
 
 Dentro de la VM, ejecuta:
 
+
 ```sh
 # Este comando crea el archivo de evidencia directamente
 {
